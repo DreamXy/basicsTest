@@ -1,0 +1,54 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<parent>
+		<groupId>com.yiqi</groupId>
+		<artifactId>yiqi-security</artifactId>
+		<version>3.2.0</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>yiqi-pay</artifactId>
+	<packaging>jar</packaging>
+	<description>yiqi-pay</description>
+
+	<properties>
+        <rongcloud.version>3.0.1</rongcloud.version>
+        <jdom.version>2.0.5</jdom.version>
+	</properties>
+
+	<build>
+		<finalName>${project.artifactId}</finalName>
+	</build>
+	<dependencies>
+		<dependency>
+			<groupId>com.yiqi</groupId>
+			<artifactId>yiqi-common</artifactId>
+			<version>3.2.0</version>
+		</dependency>
+		<!-- 支付宝SDK -->
+		<dependency>
+			<groupId>com.alipay.sdk</groupId>
+			<artifactId>alipay-sdk-java</artifactId>
+			<version>3.4.27.ALL</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jdom</groupId>
+			<artifactId>jdom2</artifactId>
+			<version>${jdom.version}</version>
+		</dependency>
+		<!-- lombok -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.16.18</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-convention-plugin</artifactId>
+			<version>2.5.8</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+		</dependency>
+	</dependencies>
+
+</project>
