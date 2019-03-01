@@ -52,7 +52,7 @@ public class TableInfo {
 	public String getColumnType() {
 		return columnType;
 	}
-	
+	 
 	public void setColumnType(String columnType) {
 		this.columnType = columnType; 
 	}
