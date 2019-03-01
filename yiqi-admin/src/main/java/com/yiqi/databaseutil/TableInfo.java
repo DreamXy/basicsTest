@@ -55,7 +55,7 @@ public class TableInfo {
 	 
 	public void setColumnType(String columnType) {
 		this.columnType = columnType;  
-	}
+	} 
 	public String getColumnKey() {
 		return columnKey;
 	}
