@@ -3,7 +3,7 @@ package com.yiqi.resolver;
 
 import com.yiqi.annotation.LoginUser;
 import com.yiqi.interceptor.AuthorizationInterceptor;
-import com.yiqi.entity.UserEntity;
+import com.yiqi.entity.*;
 import com.yiqi.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.MethodParameter;
@@ -40,7 +40,7 @@ public class LoginUserHandlerMethodArgumentResolver implements HandlerMethodArgu
         }
 
         //获取用户信息
-        UserEntity user = userService.selectById((Long)object);
+        YlbAccountEntity user = userService.selectById((Long)object);
 
         return user;
     }

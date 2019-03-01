@@ -4,7 +4,7 @@ package com.yiqi.controller;
 import com.yiqi.annotation.Login;
 import com.yiqi.common.utils.R;
 import com.yiqi.common.validator.ValidatorUtils;
-import com.yiqi.entity.UserEntity;
+import com.yiqi.entity.*;
 import com.yiqi.form.LoginForm;
 import com.yiqi.service.TokenService;
 import com.yiqi.service.UserService;
@@ -34,24 +34,24 @@ public class ApiLoginController {
 
     @PostMapping("login")
     @ApiOperation("登录")
-    public Result<UserEntity> login(LoginForm form){
+    public Result<YlbAccountEntity> login(LoginForm form){
         //表单校验
         ValidatorUtils.validateEntity(form);
 
         //用户登录
-        UserEntity userEntity = userService.login(form);
+        YlbAccountEntity userEntity = userService.login(form);
 
         return Result.success(userEntity);
     }
 
     @PostMapping("wechalogin")
     @ApiOperation("微信登陆")
-    public Result<UserEntity> wechalogin(@RequestBody LoginForm form){
+    public Result<YlbAccountEntity> wechalogin(@RequestBody LoginForm form){
         //表单校验
         ValidatorUtils.validateEntity(form);
 
         //用户登录
-        UserEntity userEntity = userService.login(form);
+        YlbAccountEntity userEntity = userService.login(form);
 
         return Result.success(userEntity);
     }

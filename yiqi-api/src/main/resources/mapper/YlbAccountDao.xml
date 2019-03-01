@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yiqi.dao.YlbAccountDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.yiqi.entity.YlbAccountEntity" id="ylbAccountMap">
+        <result property="accountid" column="AccountId" />
+        <result property="accountphone" column="AccountPhone"/>
+        <result property="accountpwd" column="AccountPwd"/>
+        <result property="registertime" column="RegisterTime"/>
+        <result property="lastTime" column="Last_Time"/>
+        <result property="uptime" column="UpTime"/>
+        <result property="accountsate" column="AccountSate"/>
+        <result property="accouttype" column="AccoutType"/>
+        <result property="wxopenid" column="WxOpenId"/>
+        <result property="registertype" column="RegisterType"/>
+        <result property="imagsrc" column="ImagSrc"/>
+        <result property="wxname" column="WxName"/>
+        <result property="accoutnname" column="AccoutnName"/>
+        <result property="ylbAccountcol" column="ylb_accountcol"/>
+        <result property="hxopenid" column="HxOpenId"/>
+    </resultMap>
+
+
+</mapper>

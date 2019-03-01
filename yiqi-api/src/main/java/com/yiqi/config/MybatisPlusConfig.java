@@ -3,6 +3,8 @@ package com.yiqi.config;
 
 import com.baomidou.mybatisplus.plugins.PaginationInterceptor;
 import com.baomidou.mybatisplus.plugins.PerformanceInterceptor;
+import com.baomidou.mybatisplus.spring.MybatisSqlSessionFactoryBean;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
@@ -25,6 +27,7 @@ public class MybatisPlusConfig {
     public PaginationInterceptor paginationInterceptor() {
         return new PaginationInterceptor();
     }
+    
 
     /**
      * SQL执行效率插件
@@ -37,6 +40,7 @@ public class MybatisPlusConfig {
         Properties properties = new Properties();
         properties.setProperty("maxTime", "100");
         properties.setProperty("format", "true");
+        
         performanceInterceptor.setProperties(properties);
         return performanceInterceptor;
     }

@@ -2,7 +2,7 @@ package com.yiqi.dao;
 
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 import com.baomidou.mybatisplus.plugins.pagination.Pagination;
-import com.yiqi.entity.UserEntity;
+import com.yiqi.entity.*;
 
 import java.util.List;
 
@@ -13,14 +13,14 @@ import java.util.List;
  *
  * @date 2017-03-23 15:22:06
  */
-public interface UserDao extends BaseMapper<UserEntity> {
+public interface UserDao extends BaseMapper<YlbAccountEntity> {
 
     /**
      * 批量新增
      * @param list
      * @return
      */
-    int insertDataByBatch(List<UserEntity> list);
+    int insertDataByBatch(List<YlbAccountEntity> list);
 
     /**
      * 分页查询，倒序
@@ -28,5 +28,5 @@ public interface UserDao extends BaseMapper<UserEntity> {
      * @param page
      * @return
      */
-    List<UserEntity> selectUserInfoPage(Pagination page, String password);
+    List<YlbAccountEntity> selectUserInfoPage(Pagination page, String password);
 }

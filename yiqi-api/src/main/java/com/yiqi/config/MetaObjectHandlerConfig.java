@@ -18,24 +18,24 @@ public class MetaObjectHandlerConfig extends MetaObjectHandler {
 
     @Override
     public void insertFill(final MetaObject metaObject) {
-        final Object createTime = getFieldValByName("create_time", metaObject);
-        final Object updateTime = getFieldValByName("update_time", metaObject);
-
-        if (StringUtils.isEmpty(createTime)){
-            metaObject.setValue("createTime", new Date());
-        }
-        if (StringUtils.isEmpty(updateTime)){
-            metaObject.setValue("updateTime", new Date());
-        }
+//        final Object createTime = getFieldValByName("create_time", metaObject);
+//        final Object updateTime = getFieldValByName("update_time", metaObject);
+//
+//        if (StringUtils.isEmpty(createTime)){
+//            metaObject.setValue("createTime", new Date());
+//        }
+//        if (StringUtils.isEmpty(updateTime)){
+//            metaObject.setValue("updateTime", new Date());
+//        }
     }
 
     @Override
     public void updateFill(final MetaObject metaObject) {
-        final Object updateTime = getFieldValByName("update_time", metaObject);
-
-        if (StringUtils.isEmpty(updateTime)){
-            metaObject.setValue("updateTime", new Date());
-        }
+//        final Object updateTime = getFieldValByName("update_time", metaObject);
+//
+//        if (StringUtils.isEmpty(updateTime)){
+//            metaObject.setValue("updateTime", new Date());
+//        }
     }
 
 }
