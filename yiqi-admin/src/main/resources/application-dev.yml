@@ -1,16 +1,16 @@
 spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
-    driverClassName: com.mysql.jdbc.Driver
+    driverClassName: com.mysql.cj.jdbc.Driver
     druid:
       first:  #数据源1
-        url: jdbc:mysql://123.207.242.71:3306/popularmoneybag?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8
+        url: jdbc:mysql://localhost:3306/ylb_data?useSSL=false&serverTimezone=UTC&characterEncoding=UTF-8&allowPublicKeyRetrieval=true&useSSL=false
         username: root
-        password: YiQi_keji2018
+        password: 
       second:  #数据源2
-        url: jdbc:mysql://10.10.168.18:3306/renren_security?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8
-        username: yiqi
-        password: 123456
+        url: jdbc:mysql://localhost:3306/ylb_data?useSSL=false&serverTimezone=UTC&characterEncoding=UTF-8&allowPublicKeyRetrieval=true&useSSL=false
+        username: root
+        password: 
       initial-size: 10
       max-active: 100
       min-idle: 10
