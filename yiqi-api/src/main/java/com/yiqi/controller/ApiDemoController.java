@@ -36,7 +36,7 @@ import java.util.*;
  * @date 2019-01-23 10:47
  */
 @RestController
-@RequestMapping("/api/demo")
+@RequestMapping("/api/Home")
 @Api(tags="demo接口")
 public class ApiDemoController extends BasicController {
 
