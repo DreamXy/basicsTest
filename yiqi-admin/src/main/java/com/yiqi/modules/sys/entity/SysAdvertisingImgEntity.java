@@ -6,6 +6,8 @@ import com.baomidou.mybatisplus.annotations.TableName;
 import java.io.Serializable;
 import java.util.Date;
 
+import org.springframework.web.multipart.MultipartFile;
+
 /**
  * 
  * 
@@ -34,6 +36,8 @@ public class SysAdvertisingImgEntity implements Serializable {
 	 * 
 	 */
 	private String imgtype;
+	
+	
 	/**
 	 * 
 	 */
@@ -115,4 +119,5 @@ public class SysAdvertisingImgEntity implements Serializable {
 	public Date getCreateDate() {
 		return createDate;
 	}
+	
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title></title>
+<title>图片管理</title>
 		<#include "/header.html">
 </head>
 <body>
@@ -15,8 +15,9 @@
             <a class="btn btn-primary" @click="update"><i class="fa fa-pencil-square-o"></i>&nbsp;修改</a>
 			</#if>
 			<#if shiro.hasPermission("sys:sysadvertisingimg:delete")>
-            <a class="btn btn-primary" @click="del"><i class="fa fa-trash-o"></i>&nbsp;删除</a>
+			<a class="btn btn-primary" @click="del"><i class="fa fa-trash-o"></i>&nbsp;删除</a>
 			</#if>
+			
         </div>
         <table id="jqGrid"></table>
         <div id="jqGridPager"></div>
@@ -26,33 +27,39 @@
         <div class="panel-heading">{{title}}</div>
         <form class="form-horizontal">
 														                    <div class="form-group">
-                        <div class="col-sm-2 control-label"></div>
+                        <div class="col-sm-2 control-label">选择图片</div>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" v-model="sysAdvertisingImg.imgsrc" placeholder=""/>
+                            <input type="text"  style="display:none" class="form-control"  v-model="sysAdvertisingImg.imgsrc" placeholder="图片内容"/>
+                             <input type="file" name="logoFile" id="logoFile" onchange="setImg(this);">
+
                         </div>
                     </div>
 											                    <div class="form-group">
-                        <div class="col-sm-2 control-label"></div>
+                        <div class="col-sm-2 control-label">图片跳转地址</div>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" v-model="sysAdvertisingImg.imgurl" placeholder=""/>
+                            <input type="text" class="form-control" v-model="sysAdvertisingImg.imgurl" placeholder="图片跳转地址"/>
                         </div>
                     </div>
 											                    <div class="form-group">
-                        <div class="col-sm-2 control-label"></div>
+                        <div class="col-sm-2 control-label">图片位置</div>
+                   
+                        <label class="radio-inline">
+					<input type="radio" name="status" value="0" v-model="sysAdvertisingImg.imgtype"/> 首页顶部
+				</label>
+				<label class="radio-inline">
+					<input type="radio" name="status" value="1" v-model="sysAdvertisingImg.imgtype"/> 首页底部
+				</label>
+                    </div>
+											                    <div class="form-group">
+                        <div class="col-sm-2 control-label">图片顺序</div>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" v-model="sysAdvertisingImg.imgtype" placeholder=""/>
+                            <input type=text class="form-control" v-model="sysAdvertisingImg.imgsequence" placeholder="图片顺序"/>
                         </div>
                     </div>
 											                    <div class="form-group">
-                        <div class="col-sm-2 control-label"></div>
+                        <div class="col-sm-2 control-label">上线时间</div>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" v-model="sysAdvertisingImg.imgsequence" placeholder=""/>
-                        </div>
-                    </div>
-											                    <div class="form-group">
-                        <div class="col-sm-2 control-label"></div>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" v-model="sysAdvertisingImg.createDate" placeholder=""/>
+                            <input type="datetime-local"  class="form-control" v-model="sysAdvertisingImg.createDate" placeholder="上线时间"/>
                         </div>
                     </div>
 							            <div class="form-group">

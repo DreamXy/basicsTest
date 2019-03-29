@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+		<#include "/header.html">
+		
+    <link href="${request.contextPath}/statics/themes/default/css/umeditor.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" charset="utf-8" src="${request.contextPath}/statics/umeditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="${request.contextPath}/statics/umeditor.min.js"></script>
+    <script type="text/javascript" src="${request.contextPath}/statics/lang/zh-cn/zh-cn.js"></script>
+</head>
+<body>
+<div id="rrapp" v-cloak>
+    <div v-show="showList">
+        <div class="grid-btn">
+			<#if shiro.hasPermission("sys:ylbadvertising:save")>
+            <a class="btn btn-primary" @click="add"><i class="fa fa-plus"></i>&nbsp;新增</a>
+			</#if>
+			<#if shiro.hasPermission("sys:ylbadvertising:update")>
+            <a class="btn btn-primary" @click="update"><i class="fa fa-pencil-square-o"></i>&nbsp;修改</a>
+			</#if>
+			<#if shiro.hasPermission("sys:ylbadvertising:delete")>
+            <a class="btn btn-primary" @click="del"><i class="fa fa-trash-o"></i>&nbsp;删除</a>
+			</#if>
+        </div>
+        <table id="jqGrid"></table>
+        <div id="jqGridPager"></div>
+    </div>
+
+    <div v-show="!showList" class="panel panel-default">
+        <div class="panel-heading">{{title}}</div>
+        <form class="form-horizontal">
+														                    <div class="form-group">
+                        <div class="col-sm-2 control-label">标题</div>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" v-model="ylbAdvertising.title" placeholder=""/>
+                        </div>
+                    </div>
+											                    <div class="form-group">
+                        <div class="col-sm-2 control-label">跳转地址</div>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" v-model="ylbAdvertising.turl" placeholder=""/>
+                        </div>
+                    </div>
+											                    <div class="form-group">
+                        <div class="col-sm-2 control-label">内容</div>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" style="display:none" v-model="ylbAdvertising.tcontent" placeholder=""/>
+                       <!--style给定宽度可以影响编辑器的最终宽度-->
+<script type="text/plain" id="myEditor" style="width:1000px;height:240px;">
+    <p>这里我可以写一些输入提示</p>
+</script>
+                        </div>
+                    </div>
+											                    <div class="form-group">
+                        <div class="col-sm-2 control-label">发布时间</div>
+                        <div class="col-sm-10">
+                            <input type="datetime-local" class="form-control" v-model="ylbAdvertising.releasetime" placeholder=""/>
+                        </div>
+                    </div>
+							            <div class="form-group">
+                <div class="col-sm-2 control-label"></div>
+                <input type="button" class="btn btn-primary" @click="saveOrUpdate" value="确定"/>
+                &nbsp;&nbsp;<input type="button" class="btn btn-warning" @click="reload" value="返回"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="${request.contextPath}/statics/js/modules/sys/ylbadvertising.js?_${.now?long}"></script>
+<script type="text/javascript">
+    //实例化编辑器
+    var um = UM.getEditor('myEditor');
+   
+</script>
+</body>
+</html>

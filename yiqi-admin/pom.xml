@@ -7,7 +7,8 @@
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>yiqi-admin</artifactId>
 	<packaging>jar</packaging>
-	<description>yiqi-admin</description>
+	<description>yiqi-admin</description> 
+	
 
 	<properties>
 		<quartz.version>2.3.0</quartz.version>

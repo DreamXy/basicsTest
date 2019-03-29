@@ -1,6 +1,5 @@
 package com.yiqi.controller;
 
-
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.yiqi.annotation.Login;
@@ -9,8 +8,7 @@ import com.yiqi.common.exception.RRException;
 import com.yiqi.common.utils.CodeMsg;
 import com.yiqi.common.validator.Assert;
 import com.yiqi.common.validator.ValidatorUtils;
-import com.yiqi.entity.UserEntity;
-import com.yiqi.entity.YlbAccountEntity;
+import com.yiqi.entity.*;
 import com.yiqi.form.PageForm;
 import com.yiqi.form.UserForm;
 import com.yiqi.interceptor.AuthorizationInterceptor;
@@ -37,76 +35,110 @@ import java.util.*;
  */
 @RestController
 @RequestMapping("/api/Home")
-@Api(tags="demo接口")
+@Api(tags = "demo接口")
 public class ApiDemoController extends BasicController {
 
-    @Login
-    @GetMapping("userInfo1")
-    @ApiOperation(value="获取用户信息(方式一)")
-    public Result<YlbAccountEntity> userInfo1(@ApiIgnore @RequestAttribute(AuthorizationInterceptor.USER_KEY) Long userId) {
+	@Login
+	@GetMapping("userInfo1")
+	@ApiOperation(value = "获取用户信息(方式一)")
+	public Result<YlbAccountEntity> userInfo1(
+			@ApiIgnore @RequestAttribute(AuthorizationInterceptor.USER_KEY) Long userId) {
 
-        return Result.success(userService.selectById(userId));
-    }
+		return Result.success(userService.selectById(userId));
+	}
 
-    @Login
-    @GetMapping("userInfo2")
-    @ApiOperation(value="获取用户信息(方式二)")
-    public Result<UserEntity> userInfo2(@ApiIgnore @LoginUser UserEntity user) {
+	@Login
+	@GetMapping("userInfo2")
+	@ApiOperation(value = "获取用户信息(方式二)")
+	public Result<UserEntity> userInfo2(@ApiIgnore @LoginUser UserEntity user) {
 
-        return Result.success(user);
-    }
+		return Result.success(user);
+	}
 
-    @GetMapping("selectAllUserInfo")
-    @ApiOperation(value="获取所有用户信息")
-    public Result<List<YlbAccountEntity>> userInfo() {
+	@GetMapping("Index")
+	@ApiOperation(value = "获取首页信息")
+	public Result<HomeModel> Home() {
+		HomeModel ms = new HomeModel();
+		// 头部广告
+		List<SysAdvertisingImgEntity> topAdvertisingImgEntity = sysAdvertisingImgService.selectList(new EntityWrapper<SysAdvertisingImgEntity>()
+				.eq("imgtype", 0).eq("imgtype", 1).orderBy("create_date", false));
+		if (topAdvertisingImgEntity == null || topAdvertisingImgEntity.isEmpty()) {
+			ms.SysAdvertisingImgList = Collections.emptyList();
+		} else
+			ms.SysAdvertisingImgList = topAdvertisingImgEntity;
+		// 广告咨询
+		List<YlbAdvertisingEntity> ylbAdvertisingEntity = ylbAdvertisingService
+				.selectList(new EntityWrapper<>());
+		if (ylbAdvertisingEntity == null || ylbAdvertisingEntity.isEmpty()) {
+			ms.setYlbAdvertisingList(Collections.emptyList());
+		} else
+			ms.setYlbAdvertisingList(ylbAdvertisingEntity);
+		// 金牌护工
+		List<YlbHugongEntity> HugongList = ylbHugongService.selectList(new EntityWrapper<>());
+		if (HugongList == null || HugongList.isEmpty()) {
+			ms.YlbHugongList = Collections.emptyList();
+		} else
+			ms.YlbHugongList = HugongList;
+		// 底部广告
+		// 商品 YlbProductsService
+		List<YlbProductsEntity> ProductsList = ylbProductsService.selectList(new EntityWrapper<>());
+		if (ProductsList == null || ProductsList.isEmpty()) {
+			ms.YlbProductsList = Collections.emptyList();
+		} else
+			ms.YlbProductsList = ProductsList;
+		
+		return Result.success(ms);
+	}
 
-        List<YlbAccountEntity> userEntityList = userService.selectList(new EntityWrapper<>());
-        if(userEntityList == null || userEntityList.isEmpty()) {
-            return Result.error(CodeMsg.NOT_FIND_DATA, Collections.emptyList());
-        }
-        return Result.success(userEntityList);
-    }
+	@GetMapping("selectAllUserInfo")
+	@ApiOperation(value = "获取所有用户信息")
+	public Result<List<YlbAccountEntity>> userInfo() {
 
-    @GetMapping("selectUserInfoById/{id}")
-    @ApiOperation(value="由id获取用户信息")
-    public Result<YlbAccountEntity> selectUserInfoById(@PathVariable("id") Long id) {
+		List<YlbAccountEntity> userEntityList = userService.selectList(new EntityWrapper<>());
+		if (userEntityList == null || userEntityList.isEmpty()) {
+			return Result.error(CodeMsg.NOT_FIND_DATA, Collections.emptyList());
+		}
+		return Result.success(userEntityList);
+	}
 
-        return Result.success(userService.selectById(id));
-    }
+	@GetMapping("selectUserInfoById/{id}")
+	@ApiOperation(value = "由id获取用户信息")
+	public Result<YlbAccountEntity> selectUserInfoById(@PathVariable("id") Long id) {
 
-    @GetMapping("selectUserInfoByCondition1")
-    @ApiOperation(value="条件查询用户信息")
-    @ApiImplicitParams({
-            @ApiImplicitParam(name="mobile",value="手机号",required=true,paramType="query"),
-            @ApiImplicitParam(name="username",value="用户名",paramType="query")
-    })
-    public Result<List<YlbAccountEntity>> selectUserInfoByCondition1(String mobile, String username) {
-        HashMap<String, Object> map = new HashMap<>(2);
-        map.put("mobile", mobile);
-        map.put("username", username);
+		return Result.success(userService.selectById(id));
+	}
 
-        List<YlbAccountEntity> userEntityList = userService.selectByMap(map);
-        if(userEntityList == null || userEntityList.isEmpty()) {
-            return Result.error(CodeMsg.NOT_FIND_DATA, Collections.emptyList());
-        }
-        return Result.success(userEntityList);
-    }
+	@GetMapping("selectUserInfoByCondition1")
+	@ApiOperation(value = "条件查询用户信息")
+	@ApiImplicitParams({ @ApiImplicitParam(name = "mobile", value = "手机号", required = true, paramType = "query"),
+			@ApiImplicitParam(name = "username", value = "用户名", paramType = "query") })
+	public Result<List<YlbAccountEntity>> selectUserInfoByCondition1(String mobile, String username) {
+		HashMap<String, Object> map = new HashMap<>(2);
+		map.put("mobile", mobile);
+		map.put("username", username);
 
-    @GetMapping("selectUserInfoByCondition2")
-    @ApiOperation(value="条件查询用户信息")
-    @ApiImplicitParam(name = "password",value = "密码",required = true,paramType="query")
-    public Result<List<YlbAccountEntity>> selectUserInfoByCondition2(String password) {
+		List<YlbAccountEntity> userEntityList = userService.selectByMap(map);
+		if (userEntityList == null || userEntityList.isEmpty()) {
+			return Result.error(CodeMsg.NOT_FIND_DATA, Collections.emptyList());
+		}
+		return Result.success(userEntityList);
+	}
 
-        /** 条件查询，并进行倒序 **/
+	@GetMapping("selectUserInfoByCondition2")
+	@ApiOperation(value = "条件查询用户信息")
+	@ApiImplicitParam(name = "password", value = "密码", required = true, paramType = "query")
+	public Result<List<YlbAccountEntity>> selectUserInfoByCondition2(String password) {
 
-        List<YlbAccountEntity> userEntityList = userService.selectList(new EntityWrapper<YlbAccountEntity>()
-                .eq("password", DigestUtils.sha256Hex(password)).orderBy("create_time", false));
+		/** 条件查询，并进行倒序 **/
 
-        if(CollectionUtils.isEmpty(userEntityList)) {
-            return Result.error(CodeMsg.NOT_FIND_DATA, Collections.emptyList());
-        }
-        return Result.success(userEntityList);
-    }
+		List<YlbAccountEntity> userEntityList = userService.selectList(new EntityWrapper<YlbAccountEntity>()
+				.eq("password", DigestUtils.sha256Hex(password)).orderBy("create_time", false));
+
+		if (CollectionUtils.isEmpty(userEntityList)) {
+			return Result.error(CodeMsg.NOT_FIND_DATA, Collections.emptyList());
+		}
+		return Result.success(userEntityList);
+	}
 
 //    @GetMapping("selectUserInfoPage1")
 //    @ApiOperation(value="分页查询用户信息")

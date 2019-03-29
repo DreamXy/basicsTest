@@ -3,7 +3,9 @@ package com.yiqi.modules.sys.service;
 import com.baomidou.mybatisplus.service.IService;
 import com.yiqi.common.utils.PageUtils;
 import com.yiqi.modules.sys.entity.SysAdvertisingImgEntity;
+import com.yiqi.modules.sys.entity.SysUserEntity;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -16,5 +18,17 @@ import java.util.Map;
 public interface SysAdvertisingImgService extends IService<SysAdvertisingImgEntity> {
 
     PageUtils queryPage(Map<String, Object> params);
+    
+	
+	/**
+	 * 保存用户
+	 */
+	void save(SysAdvertisingImgEntity user);
+	
+	/**
+	 * 修改用户
+	 */
+	void update(SysAdvertisingImgEntity user);
+
 }
 

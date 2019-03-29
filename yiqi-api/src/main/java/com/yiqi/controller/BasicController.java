@@ -1,6 +1,6 @@
 package com.yiqi.controller;
 
-import com.yiqi.service.UserService;
+import com.yiqi.service.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,4 +18,24 @@ public class BasicController {
 
     @Autowired
     public UserService userService;
+    
+/**
+ * 護工
+ */
+    @Autowired
+    public YlbHugongService ylbHugongService;
+
+    /**
+     * 圖片
+     */
+    @Autowired
+    public SysAdvertisingImgService sysAdvertisingImgService;
+    /**
+     * 廣告咨詢
+     */
+    @Autowired
+    public YlbAdvertisingService ylbAdvertisingService;
+    
+    @Autowired
+    public YlbProductsService ylbProductsService;
 }
