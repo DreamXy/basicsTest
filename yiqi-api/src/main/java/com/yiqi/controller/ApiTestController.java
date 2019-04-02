@@ -31,6 +31,11 @@ public class ApiTestController {
     public R userInfo(@ApiIgnore @LoginUser UserEntity user){
         return R.ok().put("user", user);
     }
+    
+	@RequestMapping("login.html")
+	public String login(){
+		return "login";
+	}
 
     @Login
     @GetMapping("userId")
@@ -38,7 +43,13 @@ public class ApiTestController {
     public R userInfo(@ApiIgnore @RequestAttribute("userId") Integer userId){
         return R.ok().put("userId", userId);
     }
-
+    
+    
+	@RequestMapping(value = {"/", "index.html"})
+	public String index(String password){
+		return "index";
+	}
+    
     @GetMapping("notToken")
     @ApiOperation("忽略Token验证测试")
     public R notToken(){
