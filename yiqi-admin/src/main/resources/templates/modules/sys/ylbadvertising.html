@@ -36,7 +36,7 @@
                             <input type="text" class="form-control" v-model="ylbAdvertising.title" placeholder=""/>
                         </div>
                     </div>
-											                    <div class="form-group">
+											                    <div class="form-group" style="display:none">
                         <div class="col-sm-2 control-label">跳转地址</div>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" v-model="ylbAdvertising.turl" placeholder=""/>
@@ -51,7 +51,33 @@
     <p>这里我可以写一些输入提示</p>
 </script>
                         </div>
+                    </div> 
+                    
+                     <div class="form-group">
+                        <div class="col-sm-2 control-label">广告类型</div>
+                       <label class="radio-inline">
+					<input type="radio" name="status" value="0" v-model="ylbAdvertising.advtype"/> 公告
+				</label>
+				<label class="radio-inline">
+					<input type="radio" name="status" value="1" v-model="ylbAdvertising.advtype"/> 生活健康
+				</label>
+				    <label class="radio-inline">
+						<input type="radio" name="status" value="2" v-model="ylbAdvertising.advtype"/> 生活护理
+				</label>
+				<label class="radio-inline">
+					<input type="radio" name="status" value="3" v-model="ylbAdvertising.advtype"/> 优生优育
+				</label>
                     </div>
+                    
+                    
+                        <div class="form-group">
+                        <div class="col-sm-2 control-label">主图片</div>
+                        <div class="col-sm-10">
+                          <input type="text"  style="display:none" class="form-control"  v-model="ylbAdvertising.imgsrc" placeholder=""/>
+                             <input type="file" name="logoFile" id="logoFile" onchange="setImg(this);">
+                        </div>
+                    </div>
+                    
 											                    <div class="form-group">
                         <div class="col-sm-2 control-label">发布时间</div>
                         <div class="col-sm-10">

@@ -7,7 +7,10 @@ $(function () {
 			{ label: '广告标题', name: 'title', index: 'Title', width: 80 }, 			
 			{ label: '广告链接', name: 'turl', index: 'TUrl', width: 80 }, 			
 			{ label: '广告内容', name: 'tcontent', index: 'Tcontent', width: 80 }, 			
-			{ label: '发布时间', name: 'releasetime', index: 'ReleaseTime', width: 80 }			
+			{ label: '发布时间', name: 'releasetime', index: 'ReleaseTime', width: 80 }	, 			
+			{ label: '广告类型', name: 'advtype', index: 'AdvType', width: 80 }	, 			
+			{ label: '主图片', name: 'imgsrc', index: 'Imgsrc', width: 80 }	, 	 		
+			{ label: '点赞数量', name: 'visitcount', index: 'visitcount', width: 80 }			
         ],
 		viewrecords: true,
         height: 385,
@@ -228,4 +231,49 @@ function Base64() {
         return string;
     }
 }
-  
+
+function setImg(obj) {
+	var f = $(obj).val();
+	alert(f);
+	console.log(obj);
+	if (f == null || f == undefined || f == '') {
+		return false;
+	}
+	if (!/\.(?:png|jpg|bmp|gif|PNG|JPG|BMP|GIF)$/.test(f)) {
+		alert("类型必须是图片(.png|jpg|bmp|gif|PNG|JPG|BMP|GIF)");
+		$(obj).val('');
+		return false;
+	}
+	var data = new FormData();
+	console.log(data);
+	$.each($(obj)[0].files, function(i, file) {
+		data.append('file', file);
+	});
+	console.log(data);
+	$.ajax({
+		type : "POST",
+		url : baseURL + "sys/sysadvertisingimg/uploadImg.xhtml",
+		data : data,
+		cache : false,
+		contentType : false, // 不可缺
+		processData : false, // 不可缺
+		dataType : "json",
+		success : function(ret) {
+			console.log(ret);
+			if (ret.code == 0) {
+				
+				vm.ylbAdvertising.imgsrc = ret.result.url;
+				// $("#photourlShow").attr("src",ret.result.url);//显示图片
+				alert(ret.message);
+			} else {
+				alert(ret.message);
+				$("#url").val("");
+				$(obj).val('');
+			}
+		},
+		error : function(XMLHttpRequest, textStatus, errorThrown) {
+			alert("上传失败，请检查网络后重试");
+		}
+	});
+
+}

@@ -5,20 +5,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
     <title>text</title>
-    <script src="js/jquery-2.1.0.js"></script>
-    <script src="js/share.js"></script>
-    <link href="css/public.css" rel="stylesheet" />
+    <script src="http://www.jiuzhenjk.xyz/js/jquery-2.1.0.js"></script>
+    <script src="http://www.jiuzhenjk.xyz/js/share.js"></script>
+    <link href="http://www.jiuzhenjk.xyz/css/public.css" rel="stylesheet" />
   </head>
 
   <body>
     <section>
-      <h2 class="notice-title">
-<span th:text="${key}"></span>审判人员是否回避由谁决定？当事人不服回避决定怎么办？</h2>
-      <div class="notice-main">
-        <p>人民法院对当事人提出的回避申请，应当在申请提出的３日内，以口头或者书面形式作出决定院长担任审判长时的回避，由审判委员会决定；审判人员的回避，由院长决定；其他人员回避，由审判长决定。被申请回避的人员在人民法院作出是否回避的决定前，应当暂停参与本案的工作，但案件需要采取紧急措施的除外。比如案件需要采取财产保全措施，尽管审判人员已被申请回避，也仍然可以采取这一措施，但本案其他工作必须暂停。</p>
-        <p>人民法院接到当事人的回避申请，决定回避的，审判人员和有关人员即应退出本案审理，驳回申请的，审判人员和有关人员应继续本案审理，申请人对决定不服的，可以在接到决定时申请复议一次。复议期间，被申请回避的人员，不停止参与本案的工作。</p>
-      </div>
-      <p class="notice-time">2019年3月28日</p>
+      <h2 class="notice-title" th:text="${ti}"></h2>
+      <div class="notice-main"  th:utext="${cn}">
+            </div>
+      <p class="notice-time" th:text="${day}"></p>
     </section>
   </body>
 

@@ -3,6 +3,8 @@ package com.yiqi.modules.sys.entity;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
 
+import net.sf.jsqlparser.expression.DateTimeLiteralExpression.DateTime;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -37,8 +39,31 @@ public class YlbAdvertisingEntity implements Serializable {
 	/**
 	 * 
 	 */
-	private Date releasetime;
+	private DateTime releasetime;
+	
+	private int advtype;
+	private String imgsrc;
+	private int visitcount;
+	
 
+	public int getAdvtype() {
+		return advtype;
+	}
+	public void setAdvtype(int advtype) {
+		this.advtype = advtype;
+	}
+	public String getImgsrc() {
+		return imgsrc;
+	}
+	public void setImgsrc(String imgsrc) {
+		this.imgsrc = imgsrc;
+	}
+	public int getVisitcount() {
+		return visitcount;
+	}
+	public void setVisitcount(int visitcount) {
+		this.visitcount = visitcount;
+	}
 	/**
 	 * 设置：
 	 */
@@ -90,13 +115,13 @@ public class YlbAdvertisingEntity implements Serializable {
 	/**
 	 * 设置：
 	 */
-	public void setReleasetime(Date releasetime) {
+	public void setReleasetime(DateTime releasetime) {
 		this.releasetime = releasetime;
 	}
 	/**
 	 * 获取：
 	 */
-	public Date getReleasetime() {
+	public DateTime getReleasetime() {
 		return releasetime;
 	}
 }
