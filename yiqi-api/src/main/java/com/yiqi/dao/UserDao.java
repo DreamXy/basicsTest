@@ -29,4 +29,6 @@ public interface UserDao extends BaseMapper<YlbAccountEntity> {
      * @return
      */
     List<YlbAccountEntity> selectUserInfoPage(Pagination page, String password);
+    
+    int add(YlbAccountEntity ye);
 }

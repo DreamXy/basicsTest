@@ -18,16 +18,30 @@ import java.io.Serializable;
 public class UserForm implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@ApiModelProperty(value = "用户名", required = true)
+	@ApiModelProperty(value = "用户名", required = false)
 	private String username;
 
-	@ApiModelProperty(value = "手机号", required = true)
+	@ApiModelProperty(value = "手机号", required = false)
 	private String mobile;
 
-	@ApiModelProperty(value = "密码" , required = true)
-	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-	private String password;
+	@ApiModelProperty(value = "短信Code" , required = false)
+	private String smscode;
 
+	@ApiModelProperty(value = "注册类型" , required = false)
+	private String regtype;
+
+	@ApiModelProperty(value = "头像" , required = false)
+	private String imagsrc;
+
+	@ApiModelProperty(value = "微信app OpenId" , required = false)
+	private String wxopenid;
+
+	@ApiModelProperty(value = "QQ OpenId" , required = false)
+	private String qqopenid;
+
+	@ApiModelProperty(value = "小程序  OpenId" , required = false)
+	private String xcopenid;
+	
 	public String getUsername() {
 		return username;
 	}
@@ -44,13 +58,59 @@ public class UserForm implements Serializable {
 		this.mobile = mobile;
 	}
 
-	public String getPassword() {
-		return password;
+	public String getSmscode() {
+		return smscode;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setSmscoded(String password) {
+		this.smscode = password;
 	}
+
+	public String getRegtype() {
+		return regtype;
+	}
+
+	public void setRegtype(String regtype) {
+		this.regtype = regtype;
+	}
+
+	public String getImagsrc() {
+		return imagsrc;
+	}
+
+	public void setImagsrc(String imagsrc) {
+		this.imagsrc = imagsrc;
+	}
+
+	public String getWxopenid() {
+		return wxopenid;
+	}
+
+	public void setWxopenid(String wxopenid) {
+		this.wxopenid = wxopenid;
+	}
+
+	public String getQqopenid() {
+		return qqopenid;
+	}
+
+	public void setQqopenid(String qqopenid) {
+		this.qqopenid = qqopenid;
+	}
+
+	public String getXcopenid() {
+		return xcopenid;
+	}
+
+	public void setXcopenid(String xcopenid) {
+		this.xcopenid = xcopenid;
+	}
+
+	public void setSmscode(String smscode) {
+		this.smscode = smscode;
+	}
+	
+	
 
 	
 }

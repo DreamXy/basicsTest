@@ -24,6 +24,19 @@ public class BasicController {
  */
     @Autowired
     public YlbHugongService ylbHugongService;
+    
+
+    @Autowired
+    public YlbByabecareService ylbByabecareService;
+    
+
+    @Autowired
+    public YlbFamilycareService ylbfamilycareService;
+    
+
+    @Autowired
+    public YlbHospitalcareService ylbhospitalcareService;
+    
 
     /**
      * 圖片

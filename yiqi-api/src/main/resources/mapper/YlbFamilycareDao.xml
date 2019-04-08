@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yiqi.dao.YlbFamilycareDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.yiqi.entity.YlbFamilycareEntity" id="ylbFamilycareMap">
+        <result property="id" column="Id"/>
+        <result property="hugongid" column="hugongId"/>
+        <result property="leve" column="Leve"/>
+        <result property="workage" column="WorkAge"/>
+        <result property="hospitalid" column="HospitalId"/>
+        <result property="isoldage" column="IsOldage"/>
+        <result property="company" column="Company"/>
+        <result property="companyname" column="CompanyName"/>
+        <result property="hospitalname" column="HospitalName"/>
+        <result property="stars" column="Stars"/>
+        <result property="serverange" column="serverange"/>
+        <result property="servecounts" column="servecounts"/>
+        <result property="quality" column="quality"/>
+        <result property="introductions" column="Introductions"/>
+        <result property="ishealth" column="IsHealth"/>
+        <result property="auditstate" column="auditstate"/>
+        <result property="audittime" column="audittime"/>
+        <result property="auditremark" column="auditremark"/>
+        <result property="uptime" column="UpTime"/>
+        <result property="idcard" column="IdCard"/>
+    </resultMap>
+
+
+</mapper>

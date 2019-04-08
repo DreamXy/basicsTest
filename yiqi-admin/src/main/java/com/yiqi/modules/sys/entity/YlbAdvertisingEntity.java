@@ -44,6 +44,7 @@ public class YlbAdvertisingEntity implements Serializable {
 	private int advtype;
 	private String imgsrc;
 	private int visitcount;
+	private int okcount;
 	
 
 	public int getAdvtype() {
@@ -63,6 +64,13 @@ public class YlbAdvertisingEntity implements Serializable {
 	}
 	public void setVisitcount(int visitcount) {
 		this.visitcount = visitcount;
+	}
+
+	public int getOkcount() {
+		return okcount;
+	}
+	public void setOkcount(int okcount) {
+		this.okcount = okcount;
 	}
 	/**
 	 * 设置：

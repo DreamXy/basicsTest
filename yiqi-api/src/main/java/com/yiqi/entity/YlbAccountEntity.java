@@ -65,19 +65,19 @@ public class YlbAccountEntity implements Serializable {
 	/**
 	 * 
 	 */
-	private String wxname;
-	/**
-	 * 
-	 */
 	private String accoutnname;
 	/**
 	 * 
 	 */
-	private String ylbAccountcol;
+	private String hxopenid;
+	/**
+	 * 小程序ID
+	 */
+	private String qqopenid;
 	/**
 	 * 
 	 */
-	private String hxopenid;
+	private String xcopenid;
 
 	/**
 	 * 设置：
@@ -214,18 +214,6 @@ public class YlbAccountEntity implements Serializable {
 	/**
 	 * 设置：
 	 */
-	public void setWxname(String wxname) {
-		this.wxname = wxname;
-	}
-	/**
-	 * 获取：
-	 */
-	public String getWxname() {
-		return wxname;
-	}
-	/**
-	 * 设置：
-	 */
 	public void setAccoutnname(String accoutnname) {
 		this.accoutnname = accoutnname;
 	}
@@ -234,18 +222,6 @@ public class YlbAccountEntity implements Serializable {
 	 */
 	public String getAccoutnname() {
 		return accoutnname;
-	}
-	/**
-	 * 设置：
-	 */
-	public void setYlbAccountcol(String ylbAccountcol) {
-		this.ylbAccountcol = ylbAccountcol;
-	}
-	/**
-	 * 获取：
-	 */
-	public String getYlbAccountcol() {
-		return ylbAccountcol;
 	}
 	/**
 	 * 设置：
@@ -259,4 +235,29 @@ public class YlbAccountEntity implements Serializable {
 	public String getHxopenid() {
 		return hxopenid;
 	}
+	/**
+	 * 设置：小程序ID
+	 */
+	public void setQqopenid(String qqopenid) {
+		this.qqopenid = qqopenid;
+	}
+	/**
+	 * 获取：小程序ID
+	 */
+	public String getQqopenid() {
+		return qqopenid;
+	}
+	/**
+	 * 设置：
+	 */
+	public void setXcopenid(String xcopenid) {
+		this.xcopenid = xcopenid;
+	}
+	/**
+	 * 获取：
+	 */
+	public String getXcopenid() {
+		return xcopenid;
+	}
 }
+

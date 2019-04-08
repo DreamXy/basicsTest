@@ -40,7 +40,7 @@ public class TokenServiceImpl extends ServiceImpl<TokenDao, TokenEntity> impleme
 		tokenEntity.setToken(token);
 		tokenEntity.setUpdateTime(now);
 		tokenEntity.setExpireTime(expireTime);
-		this.insertOrUpdate(tokenEntity);
+		//this.insertOrUpdate(tokenEntity);
 
 		return tokenEntity;
 	}
@@ -53,7 +53,7 @@ public class TokenServiceImpl extends ServiceImpl<TokenDao, TokenEntity> impleme
 		tokenEntity.setUserId(userId);
 		tokenEntity.setUpdateTime(now);
 		tokenEntity.setExpireTime(now);
-		this.insertOrUpdate(tokenEntity);
+		//this.insertOrUpdate(tokenEntity);
 	}
 
 	private String generateToken(){

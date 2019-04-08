@@ -27,3 +27,4 @@ public class YlbHugongServiceImpl extends ServiceImpl<YlbHugongDao, YlbHugongEnt
     }
 
 }
+ 

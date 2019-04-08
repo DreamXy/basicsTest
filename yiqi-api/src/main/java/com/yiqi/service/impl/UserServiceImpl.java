@@ -69,4 +69,10 @@ public class UserServiceImpl extends ServiceImpl<UserDao, YlbAccountEntity> impl
 
 		return this.baseMapper.selectUserInfoPage(page, password);
 	}
+
+	@Override
+	public int add(YlbAccountEntity ye)
+	{
+		return this.baseMapper.add(ye);
+	}
 }

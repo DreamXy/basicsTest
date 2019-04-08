@@ -5,7 +5,7 @@
 
 	<!-- 可根据自己的需求，是否要使用 -->
     <resultMap type="com.yiqi.entity.YlbAccountEntity" id="ylbAccountMap">
-        <result property="accountid" column="AccountId" />
+        <result property="accountid" column="AccountId"/>
         <result property="accountphone" column="AccountPhone"/>
         <result property="accountpwd" column="AccountPwd"/>
         <result property="registertime" column="RegisterTime"/>
@@ -16,11 +16,20 @@
         <result property="wxopenid" column="WxOpenId"/>
         <result property="registertype" column="RegisterType"/>
         <result property="imagsrc" column="ImagSrc"/>
-        <result property="wxname" column="WxName"/>
         <result property="accoutnname" column="AccoutnName"/>
-        <result property="ylbAccountcol" column="ylb_accountcol"/>
         <result property="hxopenid" column="HxOpenId"/>
+        <result property="qqopenid" column="QQOpenId"/>
+        <result property="xcopenid" column="XCOpenId"/>
     </resultMap>
 
+
+<insert id="add" useGeneratedKeys="true" keyColumn="id" keyProperty="accountid"
+        parameterType="com.yiqi.entity.YlbAccountEntity">
+    INSERT INTO ylb_account (accountphone,registertime,accountsate,accouttype,wxopenid,registertype,imagsrc,accoutnname,hxopenid,qqopenid,xcopenid) 
+    VALUES (#{accountphone},#{registertime},#{accountsate},#{accouttype},#{wxopenid},#{registertype},#{imagsrc},#{accoutnname},#{hxopenid},#{qqopenid},#{xcopenid})
+    <selectKey resultType="Long" keyProperty="accountid" order="AFTER">
+        SELECT LAST_INSERT_ID() 
+    </selectKey>
+</insert>
 
 </mapper>

@@ -55,31 +55,51 @@ public class ApiDemoController extends BasicController {
 		return Result.success(user);
 	}
 
+	@RequestMapping(path = "/Information", method = RequestMethod.POST)
+	@ApiOperation(value = "获取健康资讯") 
+	public Result<CustomerPage<YlbAdvertisingEntity>> Information(@RequestBody PageForm form) {
+	
+		Page<YlbAdvertisingEntity> ylbadvEntityPage = new Page<>(form.getPage(), form.getLimit());
+		String typeid = form.getConditions();
+		if (typeid != "0" && typeid != "") {
+			ylbadvEntityPage = ylbAdvertisingService.selectPage(ylbadvEntityPage,
+				new EntityWrapper<YlbAdvertisingEntity>().eq("advtype",typeid));
+		}else
+		{
+			ylbadvEntityPage = ylbAdvertisingService.selectPage(ylbadvEntityPage,
+					new EntityWrapper<YlbAdvertisingEntity>());
+		}
+		
+		return Result.success(new CustomerPage(ylbadvEntityPage));
+	}
+	
+
 	@GetMapping("Index")
 	@ApiOperation(value = "获取首页信息")
 	public Result<HomeModel> Home() {
 		HomeModel ms = new HomeModel();
 		// 头部广告
-		List<SysAdvertisingImgEntity> topAdvertisingImgEntity = sysAdvertisingImgService.selectList(new EntityWrapper<>());
+		List<SysAdvertisingImgEntity> topAdvertisingImgEntity = sysAdvertisingImgService
+				.selectList(new EntityWrapper<>());
 		if (topAdvertisingImgEntity == null || topAdvertisingImgEntity.isEmpty()) {
 			ms.SysAdvertisingImgList = Collections.emptyList();
 		} else
 			ms.SysAdvertisingImgList = topAdvertisingImgEntity;
 		// 广告咨询
-		List<YlbAdvertisingEntity> ylbAdvertisingEntity = ylbAdvertisingService
-				.selectList(new EntityWrapper<>());
+		List<YlbAdvertisingEntity> ylbAdvertisingEntity = ylbAdvertisingService.selectList(new EntityWrapper<>());
 		if (ylbAdvertisingEntity == null || ylbAdvertisingEntity.isEmpty()) {
 			ms.YlbAdvertisingList = Collections.emptyList();
 		} else {
 			for (YlbAdvertisingEntity itr : ylbAdvertisingEntity) {
-				itr.setTcontent(decode(itr.getTcontent()));
-			 }
+				// decode(itr.getTcontent())
+				itr.setTcontent("");
+			}
 			ms.YlbAdvertisingList = ylbAdvertisingEntity;
 		}
 		// 金牌护工
 		List<YlbHugongEntity> HugongList = ylbHugongService.selectList(new EntityWrapper<>());
 		if (HugongList == null || HugongList.isEmpty()) {
-			
+
 		} else
 			ms.YlbHugongList = HugongList;
 		// 底部广告
@@ -89,28 +109,29 @@ public class ApiDemoController extends BasicController {
 			ms.YlbProductsList = Collections.emptyList();
 		} else
 			ms.YlbProductsList = ProductsList;
-		
+
 		return Result.success(ms);
 	}
 
-    /**
-     * 将 BASE64 编码的字符串 s 进行解码
-     *
-     * @return String
-     * @author lifq
-     * @date 2015-3-4 上午09:24:26
-     */
-    public static String decode(String s) {
-        if (s == null)
-            return null;
-        
-        try {
-            byte[] b = Base64.getDecoder().decode(s.getBytes());
-            return new String(b,"utf-8");
-        } catch (Exception e) {
-            return null;
-        }
-    }
+	/**
+	 * 将 BASE64 编码的字符串 s 进行解码
+	 *
+	 * @return String
+	 * @author lifq
+	 * @date 2015-3-4 上午09:24:26
+	 */
+	public static String decode(String s) {
+		if (s == null)
+			return null;
+
+		try {
+			byte[] b = Base64.getDecoder().decode(s.getBytes());
+			return new String(b, "utf-8");
+		} catch (Exception e) {
+			return null;
+		}
+	}
+
 	@GetMapping("selectAllUserInfo")
 	@ApiOperation(value = "获取所有用户信息")
 	public Result<List<YlbAccountEntity>> userInfo() {

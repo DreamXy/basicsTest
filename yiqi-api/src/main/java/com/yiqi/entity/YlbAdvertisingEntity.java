@@ -39,6 +39,36 @@ public class YlbAdvertisingEntity implements Serializable {
 	 */
 	private Date releasetime;
 
+	private int advtype;
+	private String imgsrc;
+	private int visitcount;
+	private int okcount;
+
+	public int getAdvtype() {
+		return advtype;
+	}
+	public void setAdvtype(int advtype) {
+		this.advtype = advtype;
+	}
+	public String getImgsrc() {
+		return imgsrc;
+	}
+	public void setImgsrc(String imgsrc) {
+		this.imgsrc = imgsrc;
+	}
+	public int getVisitcount() {
+		return visitcount;
+	}
+	public void setVisitcount(int visitcount) {
+		this.visitcount = visitcount;
+	}
+	
+	public int getOkcount() {
+		return okcount;
+	}
+	public void setOkcount(int okcount) {
+		this.okcount = okcount;
+	}
 	/**
 	 * 设置：
 	 */

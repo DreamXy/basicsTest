@@ -7,11 +7,11 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * 
+ * 护工
  * 
  * @author chenshun
  * @email sunlightcs@gmail.com
- * @date 2019-03-24 13:15:08
+ * @date 2019-04-07 23:07:37
  */
 @TableName("ylb_hugong")
 public class YlbHugongEntity implements Serializable {
@@ -31,41 +31,31 @@ public class YlbHugongEntity implements Serializable {
 	 */
 	private String photo;
 	/**
-	 * 
-	 */
-	private String leve;
-	/**
-	 * 
+	 * 年龄
 	 */
 	private Integer age;
 	/**
-	 * 
+	 * 性别
 	 */
 	private Integer sex;
 	/**
-	 * 
-	 */
-	private String workage;
-	/**
-	 * 
-	 */
-	private String hospital;
-	/**
-	 * 
+	 * 工作状态 、忙、闲
 	 */
 	private String workstate;
 	/**
-	 * 
+	 * 护工服务类型 1为 医院陪护 2为家庭陪护 3为母婴 4为管理员
 	 */
-	private String ylbHugongcol;
+	private String servetyle;
+	/**
+	 * 身份证
+	 */
+	private String idcard;
 	/**
 	 * 
 	 */
-	private Integer ishealth;
-	/**
-	 * 
-	 */
-	private Integer isoldage;
+	private Integer ismanageteacher;
+	
+	private Integer accountid;
 
 	/**
 	 * 设置：
@@ -104,111 +94,83 @@ public class YlbHugongEntity implements Serializable {
 		return photo;
 	}
 	/**
-	 * 设置：
-	 */
-	public void setLeve(String leve) {
-		this.leve = leve;
-	}
-	/**
-	 * 获取：
-	 */
-	public String getLeve() {
-		return leve;
-	}
-	/**
-	 * 设置：
+	 * 设置：年龄
 	 */
 	public void setAge(Integer age) {
 		this.age = age;
 	}
 	/**
-	 * 获取：
+	 * 获取：年龄
 	 */
 	public Integer getAge() {
 		return age;
 	}
 	/**
-	 * 设置：
+	 * 设置：性别
 	 */
 	public void setSex(Integer sex) {
 		this.sex = sex;
 	}
 	/**
-	 * 获取：
+	 * 获取：性别
 	 */
 	public Integer getSex() {
 		return sex;
 	}
 	/**
-	 * 设置：
-	 */
-	public void setWorkage(String workage) {
-		this.workage = workage;
-	}
-	/**
-	 * 获取：
-	 */
-	public String getWorkage() {
-		return workage;
-	}
-	/**
-	 * 设置：
-	 */
-	public void setHospital(String hospital) {
-		this.hospital = hospital;
-	}
-	/**
-	 * 获取：
-	 */
-	public String getHospital() {
-		return hospital;
-	}
-	/**
-	 * 设置：
+	 * 设置：工作状态 、忙、闲
 	 */
 	public void setWorkstate(String workstate) {
 		this.workstate = workstate;
 	}
 	/**
-	 * 获取：
+	 * 获取：工作状态 、忙、闲
 	 */
 	public String getWorkstate() {
 		return workstate;
 	}
 	/**
+	 * 设置：护工服务类型 1为 医院陪护 2为家庭陪护 3为母婴 4为管理员
+	 */
+	public void setServetyle(String servetyle) {
+		this.servetyle = servetyle;
+	}
+	/**
+	 * 获取：护工服务类型 1为 医院陪护 2为家庭陪护 3为母婴 4为管理员
+	 */
+	public String getServetyle() {
+		return servetyle;
+	}
+	/**
+	 * 设置：身份证
+	 */
+	public void setIdcard(String idcard) {
+		this.idcard = idcard;
+	}
+	/**
+	 * 获取：身份证
+	 */
+	public String getIdcard() {
+		return idcard;
+	}
+	/**
 	 * 设置：
 	 */
-	public void setYlbHugongcol(String ylbHugongcol) {
-		this.ylbHugongcol = ylbHugongcol;
+	public void setIsmanageteacher(Integer ismanageteacher) {
+		this.ismanageteacher = ismanageteacher;
 	}
 	/**
 	 * 获取：
 	 */
-	public String getYlbHugongcol() {
-		return ylbHugongcol;
+	public Integer getIsmanageteacher() {
+		return ismanageteacher;
 	}
-	/**
-	 * 设置：
-	 */
-	public void setIshealth(Integer ishealth) {
-		this.ishealth = ishealth;
+	public Integer getAccountid() {
+		return accountid;
 	}
-	/**
-	 * 获取：
-	 */
-	public Integer getIshealth() {
-		return ishealth;
+	public void setAccountid(Integer accountid) {
+		this.accountid = accountid;
 	}
-	/**
-	 * 设置：
-	 */
-	public void setIsoldage(Integer isoldage) {
-		this.isoldage = isoldage;
-	}
-	/**
-	 * 获取：
-	 */
-	public Integer getIsoldage() {
-		return isoldage;
-	}
+	
+	
 }

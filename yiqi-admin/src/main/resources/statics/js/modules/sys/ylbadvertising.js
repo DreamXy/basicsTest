@@ -5,12 +5,12 @@ $(function () {
         colModel: [			
 			{ label: '广告编号', name: 'id', index: 'Id', width: 50, key: true },
 			{ label: '广告标题', name: 'title', index: 'Title', width: 80 }, 			
-			{ label: '广告链接', name: 'turl', index: 'TUrl', width: 80 }, 			
-			{ label: '广告内容', name: 'tcontent', index: 'Tcontent', width: 80 }, 			
+			{ label: '广告链接', name: 'turl', index: 'TUrl', width: 80 }, 	
 			{ label: '发布时间', name: 'releasetime', index: 'ReleaseTime', width: 80 }	, 			
-			{ label: '广告类型', name: 'advtype', index: 'AdvType', width: 80 }	, 			
-			{ label: '主图片', name: 'imgsrc', index: 'Imgsrc', width: 80 }	, 	 		
-			{ label: '点赞数量', name: 'visitcount', index: 'visitcount', width: 80 }			
+			{ label: '广告类型', name: 'advtype', index: 'AdvType', width: 50 }	, 			
+			{ label: '主图片', name: 'imgsrc', index: 'Imgsrc', width: 80 }	, 	 			
+			{ label: '阅读量', name: 'visitcount', index: 'visitcount', width: 50 }	,		
+			{ label: '点赞数量', name: 'okcount', index: 'okcount', width: 50 }			
         ],
 		viewrecords: true,
         height: 385,

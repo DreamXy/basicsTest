@@ -8,15 +8,13 @@
         <result property="id" column="Id"/>
         <result property="name" column="Name"/>
         <result property="photo" column="Photo"/>
-        <result property="leve" column="Leve"/>
         <result property="age" column="Age"/>
         <result property="sex" column="Sex"/>
-        <result property="workage" column="WorkAge"/>
-        <result property="hospital" column="Hospital"/>
         <result property="workstate" column="WorkState"/>
-        <result property="ylbHugongcol" column="ylb_hugongcol"/>
-        <result property="ishealth" column="IsHealth"/>
-        <result property="isoldage" column="IsOldage"/>
+        <result property="servetyle" column="servetyle"/>
+        <result property="idcard" column="IdCard"/>
+        <result property="ismanageteacher" column="IsManageTeacher"/>
+        <result property="accountid" column="AccountId"/>
     </resultMap>
 
 

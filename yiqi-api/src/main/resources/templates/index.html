@@ -8,11 +8,27 @@
     <script src="http://www.jiuzhenjk.xyz/js/jquery-2.1.0.js"></script>
     <script src="http://www.jiuzhenjk.xyz/js/share.js"></script>
     <link href="http://www.jiuzhenjk.xyz/css/public.css" rel="stylesheet" />
+    <script>
+    function sss()
+    {
+    	var str = JSON.stringify( {page:"1" , limit : "15",conditions:"1" , form : {page:"2" , limit : "15",conditions:"12"}}  );
+    	console.log(str);
+        $.ajax({ 
+            type: 'post',
+            contentType: 'application/json',
+            url: 'http://localhost:8080/yiqi-api/api/Home/Information',
+            data: str,
+            success: function (data) {
+                alert(data);  
+            } 
+        });
+    }
+</script>
   </head>
 
   <body>
     <section>
-      <h2 class="notice-title" th:text="${ti}"></h2>
+      <h2 class="notice-title" th:text="${ti}" onclick="sss()"></h2>
       <div class="notice-main"  th:utext="${cn}">
             </div>
       <p class="notice-time" th:text="${day}"></p>

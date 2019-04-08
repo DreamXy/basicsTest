@@ -106,7 +106,7 @@ public class SysAdvertisingImgController extends AbstractController {
             try {
             	//将上传的文件写到服务器上指定的文件。
                 file.transferTo(targetFile);
-                url="http://www.jiuzhenjk.xyz/image/"+fileName;
+                url="http://www.jiuzhenjk.xyz/image/"+fileName; 
                 code=0;
                 result.setCode(code);
                 result.setMessage("图片上传成功");

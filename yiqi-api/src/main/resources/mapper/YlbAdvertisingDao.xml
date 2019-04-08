@@ -10,6 +10,10 @@
         <result property="turl" column="TUrl"/>
         <result property="tcontent" column="Tcontent"/>
         <result property="releasetime" column="ReleaseTime"/>
+        <result property="advtype" column="AdvType"/>
+        <result property="imgsrc" column="Imgsrc"/>
+        <result property="visitcount" column="visitcount"/>
+        <result property="okcount" column="okcount"/>
     </resultMap>
 
 

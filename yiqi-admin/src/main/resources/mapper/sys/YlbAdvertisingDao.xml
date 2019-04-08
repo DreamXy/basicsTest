@@ -13,6 +13,7 @@
         <result property="advtype" column="AdvType"/>
         <result property="imgsrc" column="Imgsrc"/>
         <result property="visitcount" column="visitcount"/>
+        <result property="okcount" column="okcount"/>
     </resultMap>
 
 

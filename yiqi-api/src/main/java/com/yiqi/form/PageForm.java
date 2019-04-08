@@ -22,17 +22,32 @@ public class PageForm {
     @ApiModelProperty(value = "每页条数，默认为10", required = true)
     private int limit = 10;
 
-    public Map<String, Object> getPage(PageForm form) {
+    @ApiModelProperty(value = "每页条数，默认为10", required = false)
+    private String conditions = "";
+ 
+
+	public Map<String, Object> getPage(PageForm form) {
 
         Map<String, Object> params = new HashMap<String, Object>();
         params.put("currPage", form.getPage());
         params.put("limit", form.getLimit());
+        params.put("conditions", form.getConditions());
 
         return params;
     }
 
 	public int getPage() {
 		return page;
+	}
+	
+	
+
+	public String getConditions() {
+		return conditions;
+	}
+
+	public void setConditions(String conditions) {
+		this.conditions = conditions;
 	}
 
 	public void setPage(int page) {

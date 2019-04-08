@@ -9,6 +9,9 @@ import com.yiqi.form.LoginForm;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Options;
+
 /**
  * 用户
  * 
@@ -40,4 +43,11 @@ public interface UserService extends IService<YlbAccountEntity> {
 	 * @return
 	 */
 	List<YlbAccountEntity> selectUserInfoPage(Pagination page, String password);
+	
+//    @Insert("insert into ylb_account(accountphone,registertime,accountsate) value(#{name},#{creditHour})")
+//    @Options(useGeneratedKeys = true,keyProperty = "id",keyColumn = "id")//加入该注解可以保持对象后，查看对象插入id
+//    int insertkun(YlbAccountEntity s);
+	
+	  int add(YlbAccountEntity ye);
+	   
 }
