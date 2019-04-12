@@ -98,7 +98,21 @@ public class YlbByabecareEntity implements Serializable {
 	 * 最后操作时间
 	 */
 	private Date uptime;
+	private String healthimage;
+	private String baybecertificateimage;
 
+	public String getHealthimage() {
+		return healthimage;
+	}
+	public void setHealthimage(String healthimage) {
+		this.healthimage = healthimage;
+	}
+	public String getBaybecertificateimage() {
+		return baybecertificateimage;
+	}
+	public void setBaybecertificateimage(String baybecertificateimage) {
+		this.baybecertificateimage = baybecertificateimage;
+	}
 	/**
 	 * 设置：
 	 */

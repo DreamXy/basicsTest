@@ -2,6 +2,7 @@ package com.yiqi.service;
 
 import com.baomidou.mybatisplus.service.IService;
 import com.yiqi.common.utils.PageUtils;
+import com.yiqi.entity.YlbAccountEntity;
 import com.yiqi.entity.YlbHugongEntity;
 
 import java.util.Map;
@@ -16,6 +17,9 @@ import java.util.Map;
 public interface YlbHugongService extends IService<YlbHugongEntity> {
 
     PageUtils queryPage(Map<String, Object> params);
+    
+
+	  int add(YlbHugongEntity ye);
 }
 
  

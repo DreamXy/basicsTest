@@ -98,6 +98,14 @@ public class YlbFamilycareEntity implements Serializable {
 	 * 身份证同步主表
 	 */
 	private String idcard;
+	/**
+	 * 健康证图片
+	 */
+	private String healthimage;
+	/**
+	 * 养老陪护证
+	 */
+	private String oldageimage;
 
 	/**
 	 * 设置：
@@ -339,4 +347,18 @@ public class YlbFamilycareEntity implements Serializable {
 	public String getIdcard() {
 		return idcard;
 	}
+	public String getHealthimage() {
+		return healthimage;
+	}
+	public void setHealthimage(String healthimage) {
+		this.healthimage = healthimage;
+	}
+	public String getOldageimage() {
+		return oldageimage;
+	}
+	public void setOldageimage(String oldageimage) {
+		this.oldageimage = oldageimage;
+	}
+	
+	
 }

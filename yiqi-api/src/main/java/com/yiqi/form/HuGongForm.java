@@ -1,5 +1,7 @@
 package com.yiqi.form;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -8,11 +10,14 @@ import lombok.Data;
 @ApiModel(value = "护工基本资料")
 public class HuGongForm   {
 
+	@ApiModelProperty(value = "护工ID")
+	private String hgId;
+	
 	@ApiModelProperty(value = "姓名")
 	private String name;
 
 	@ApiModelProperty(value = "一寸头像")
-	private String photo;
+	private MultipartFile photo;
 
 	@ApiModelProperty(value = "年龄")
 	private String age;
@@ -62,8 +67,11 @@ public class HuGongForm   {
 	@ApiModelProperty(value = "是否有母婴护理证 0是没有 1是有")
 	private String isbaybecertificate;
 
+	@ApiModelProperty(value = "是否为教师")
 	private Integer ismanageteacher;
-	
+
+	@ApiModelProperty(value = "图片")
+	public MultipartFile file36;
 	
 
 	public Integer getIsmanageteacher() {
@@ -82,11 +90,11 @@ public class HuGongForm   {
 		this.name = name;
 	}
 
-	public String getPhoto() {
+	public MultipartFile getPhoto() {
 		return photo;
 	}
 
-	public void setPhoto(String photo) {
+	public void setPhoto(MultipartFile photo) {
 		this.photo = photo;
 	}
 

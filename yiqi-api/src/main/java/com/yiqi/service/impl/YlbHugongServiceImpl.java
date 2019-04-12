@@ -9,6 +9,7 @@ import com.yiqi.common.utils.PageUtils;
 import com.yiqi.common.utils.Query;
 
 import com.yiqi.dao.YlbHugongDao;
+import com.yiqi.entity.YlbAccountEntity;
 import com.yiqi.entity.YlbHugongEntity;
 import com.yiqi.service.YlbHugongService;
 
@@ -25,6 +26,13 @@ public class YlbHugongServiceImpl extends ServiceImpl<YlbHugongDao, YlbHugongEnt
 
         return new PageUtils(page);
     }
+    
+
+	@Override
+	public int add(YlbHugongEntity ye)
+	{
+		return this.baseMapper.add(ye);
+	}
 
 }
  

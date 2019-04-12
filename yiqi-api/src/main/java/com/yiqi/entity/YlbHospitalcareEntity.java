@@ -100,6 +100,15 @@ public class YlbHospitalcareEntity implements Serializable {
 	private Date uptime;
 
 	/**
+	 * 健康证图片
+	 */
+	private String healthimage;
+	/**
+	 * 养老陪护证
+	 */
+	private String oldageimage;
+
+	/**
 	 * 设置：
 	 */
 	public void setId(Integer id) {
@@ -339,4 +348,18 @@ public class YlbHospitalcareEntity implements Serializable {
 	public Date getUptime() {
 		return uptime;
 	}
+	public String getHealthimage() {
+		return healthimage;
+	}
+	public void setHealthimage(String healthimage) {
+		this.healthimage = healthimage;
+	}
+	public String getOldageimage() {
+		return oldageimage;
+	}
+	public void setOldageimage(String oldageimage) {
+		this.oldageimage = oldageimage;
+	}
+	
+	
 }

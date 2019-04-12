@@ -1,5 +1,6 @@
 package com.yiqi.dao;
 
+import com.yiqi.entity.YlbAccountEntity;
 import com.yiqi.entity.YlbHugongEntity;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 
@@ -11,5 +12,6 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
  * @date 2019-04-07 23:07:37
  */
 public interface YlbHugongDao extends BaseMapper<YlbHugongEntity> {
-	
+
+    int add(YlbHugongEntity ye);
 }

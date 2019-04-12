@@ -18,4 +18,12 @@
     </resultMap>
 
 
+<insert id="add" useGeneratedKeys="true" keyColumn="id" keyProperty="Id"
+        parameterType="com.yiqi.entity.YlbHugongEntity">
+    INSERT INTO ylb_hugong (name,photo,age,sex,workstate,servetyle,idcard,ismanageteacher,accountid) 
+    VALUES (#{name},#{photo},#{age},#{sex},#{workstate},#{servetyle},#{idcard},#{ismanageteacher},#{accountid})
+    <selectKey resultType="Long" keyProperty="Id" order="AFTER">
+        SELECT LAST_INSERT_ID() 
+    </selectKey>
+</insert>
 </mapper>

@@ -25,6 +25,8 @@
         <result property="audittime" column="audittime"/>
         <result property="auditremark" column="auditremark"/>
         <result property="uptime" column="UpTime"/>
+        <result property="healthimage" column="HealthImage"/>
+        <result property="oldageimage" column="OldageImage"/>
     </resultMap>
 
 
